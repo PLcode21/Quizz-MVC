@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,7 +24,7 @@ public class QuizService {
         try {
             String content = Files.readString(path);
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(content, new TypeReference<List<Question>>() {
+            return mapper.readValue(content, new TypeReference<>() {
             });
         } catch (IOException e) {
             throw new QuizServiceException("Error reading questions file: " + e.getMessage());
