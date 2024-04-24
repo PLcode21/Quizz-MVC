@@ -88,7 +88,6 @@ public class QuizzController {
     }
 
 
-
     @GetMapping("/results")
     public String showResult(HttpSession session, Model model) {
         Integer correctAnswers = (Integer) session.getAttribute("correctAnswers");

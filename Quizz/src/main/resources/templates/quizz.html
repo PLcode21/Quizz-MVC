@@ -58,7 +58,7 @@
 <div class="container">
     <h2>Quizz des capitales !</h2>
     <p>Bienvenue <span th:text="${pseudo}">User</span>!</p>
-    <p>Question <span th:text="${index}">1</span> sur <span th:text="${listeQuestions.size()}">0</span></p>
+    <p>Question <strong th:text="${index}">1</strong> sur <span th:text="${listeQuestions.size()}">0</span></p>
     <p th:text="${question.text}"></p>
     <form action="/submitAnswer" method="post">
         <ul>
@@ -67,7 +67,7 @@
                 <label th:for="'option_' + ${optionIndex.index}" th:text="${option}">Option</label>
             </li>
         </ul>
-        <button type="submit">Next</button>
+        <button type="submit">Question suivante</button>
     </form>
 </div>
 </body>
