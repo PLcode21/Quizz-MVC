@@ -2,14 +2,86 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz MVC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Added */
+            display: block; /* Added */
+            margin: 0 auto; /* Added */
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Added */
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h2>Login</h2>
-<form action="/start" method="post">
-    <label for="pseudo">Enter your username:</label>
-    <input type="text" id="pseudo" name="pseudo" required>
-    <button type="submit">Start Quiz</button>
-</form>
+<div class="container">
+    <h2>Bienvenue au quizz des capitales !</h2>
+    <form action="/start" method="post">
+        <label for="pseudo">Veuillez entrer un pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo" required>
+        <button type="submit">je commence !</button>
+    </form>
+</div>
 </body>
 </html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Login</h2>-->
+<!--<form action="/start" method="post">-->
+<!--    <label for="pseudo">Enter your username:</label>-->
+<!--    <input type="text" id="pseudo" name="pseudo" required>-->
+<!--    <button type="submit">Start Quiz</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

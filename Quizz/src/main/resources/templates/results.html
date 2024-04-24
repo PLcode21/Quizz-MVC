@@ -7,21 +7,66 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
         h1 {
-            color: #333;
+            color: #007bff;
         }
         .score {
             font-size: 24px;
             margin-top: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-<h1>Résultats du Quiz</h1>
-<div class="score">
-    <p>Votre score est de : <span th:text="${score}"></span>%</p>
+<div class="container">
+    <h1>Résultats du Quiz</h1>
+    <div class="score">
+        <p>Votre score est de : <span th:text="${score}"></span>%</p>
+    </div>
 </div>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Résultats du Quiz</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        h1 {-->
+<!--            color: #333;-->
+<!--        }-->
+<!--        .score {-->
+<!--            font-size: 24px;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Résultats du Quiz</h1>-->
+<!--<div class="score">-->
+<!--    <p>Votre score est de : <span th:text="${score}"></span>%</p>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,7 +20,7 @@ import java.util.List;
 public class QuizzController {
 
 
-    @Autowired // Spring will automatically inject the QuizService instance
+    @Autowired // Spring va injecter QuizService automatiquement
     private QuizService quizService;
 
     @GetMapping("/login")
@@ -34,8 +32,8 @@ public class QuizzController {
     @PostMapping("/start")
     public String startQuiz(@RequestParam("pseudo") String pseudo, HttpSession session) {
         session.setAttribute("pseudo", pseudo);
-        session.setAttribute("index", 0); // Initial index for the first question
-        return "redirect:/quizz"; // Redirect to the quizz page
+        session.setAttribute("index", 0); // Index initial
+        return "redirect:/quizz"; // On redirige vers le quizz
     }
 
 
@@ -46,14 +44,14 @@ public class QuizzController {
         List<Question> questions = quizService.loadQuestions();
 
         if (index >= questions.size()) {
-            // All questions have been answered, redirect to the result page
+            // Une fois que toutes les questions ont été répondues, on redirige vers les résultats
             return "redirect:/results";
         }
 
         model.addAttribute("pseudo", pseudo);
         model.addAttribute("question", questions.get(index));
-        model.addAttribute("index", index + 1); // Question number starts from 1
-        model.addAttribute("listeQuestions", questions); // Add the list of questions to the model
+        model.addAttribute("index", index + 1); // La question +1
+        model.addAttribute("listeQuestions", questions); // Ajoute la liste des questions au modèle (text, options et correctAnswer)
 
         return "quizz";
     }
@@ -107,7 +105,7 @@ public class QuizzController {
         return "results";
     }
 
-    // Méthode pour calculer le score
+    // Méthode pour calculer le score et permet de l'afficher sur la page résultats
     public int getScore(List<Question> questions, int correctAnswers) {
         int totalQuestions = questions.size();
         return (correctAnswers * 100) / totalQuestions; // Calcule le score en pourcentage

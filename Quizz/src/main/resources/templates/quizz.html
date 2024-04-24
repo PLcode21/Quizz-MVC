@@ -2,21 +2,99 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Quizz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz MVC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h2>Quizz</h2>
-<p>Welcome, <span th:text="${pseudo}">User</span>!</p>
-<p>Question <span th:text="${index}">1</span> of <span th:text="${listeQuestions.size()}">0</span></p>
-<p th:text="${question.text}"></p>
-<form action="/submitAnswer" method="post">
-    <ul>
-        <li th:each="option, optionIndex : ${question.options}">
-            <input type="radio" th:id="'option_' + ${optionIndex.index}" th:name="answer" th:value="${optionIndex.index}" required>
-            <label th:for="'option_' + ${optionIndex.index}" th:text="${option}">Option</label>
-        </li>
-    </ul>
-    <button type="submit">Next</button>
-</form>
+<div class="container">
+    <h2>Quizz des capitales !</h2>
+    <p>Bienvenue <span th:text="${pseudo}">User</span>!</p>
+    <p>Question <span th:text="${index}">1</span> sur <span th:text="${listeQuestions.size()}">0</span></p>
+    <p th:text="${question.text}"></p>
+    <form action="/submitAnswer" method="post">
+        <ul>
+            <li th:each="option, optionIndex : ${question.options}">
+                <input type="radio" th:id="'option_' + ${optionIndex.index}" th:name="answer" th:value="${optionIndex.index}" required>
+                <label th:for="'option_' + ${optionIndex.index}" th:text="${option}">Option</label>
+            </li>
+        </ul>
+        <button type="submit">Next</button>
+    </form>
+</div>
 </body>
 </html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Quizz</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Quizz</h2>-->
+<!--<p>Welcome, <span th:text="${pseudo}">User</span>!</p>-->
+<!--<p>Question <span th:text="${index}">1</span> of <span th:text="${listeQuestions.size()}">0</span></p>-->
+<!--<p th:text="${question.text}"></p>-->
+<!--<form action="/submitAnswer" method="post">-->
+<!--    <ul>-->
+<!--        <li th:each="option, optionIndex : ${question.options}">-->
+<!--            <input type="radio" th:id="'option_' + ${optionIndex.index}" th:name="answer" th:value="${optionIndex.index}" required>-->
+<!--            <label th:for="'option_' + ${optionIndex.index}" th:text="${option}">Option</label>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <button type="submit">Next</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
